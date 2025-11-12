@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: salieri-backend
+    env: node
+    plan: free
+    branch: main
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    repo: https://github.com/Mahezvara/GameTracker-Salieri-JovenesCreativos.git
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        value: "REPLACE_WITH_MONGODB_URI"
+      - key: JWT_SECRET
+        value: "REPLACE_WITH_JWT_SECRET"
