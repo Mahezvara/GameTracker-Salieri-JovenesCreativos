@@ -28,7 +28,7 @@ const Login = () => {
     const newErrors = {};
     if (!formData.email.trim()) {
       newErrors.email = 'El email es requerido';
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Email inválido';
     }
     if (!formData.contraseña) {

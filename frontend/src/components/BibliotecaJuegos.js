@@ -3,7 +3,7 @@ import '../styles/BibliotecaJuegos.css';
 import TarjetaJuego from './TarjetaJuego';
 import FormularioJuego from './FormularioJuego';
 import ListaReseñas from './ListaReseñas';
-import { gameService, reviewService } from '../services/api';
+import { gameService } from '../services/api';
 
 const BibliotecaJuegos = () => {
   const [juegos, setJuegos] = useState([]);

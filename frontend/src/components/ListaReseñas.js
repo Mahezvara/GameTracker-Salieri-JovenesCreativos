@@ -16,6 +16,9 @@ const ListaReseñas = ({ juegoId }) => {
   const [busqueda, setBusqueda] = useState('');
 
   useEffect(() => {
+    // cargarReseñas and cargarJuego are defined inside the component
+    // we intentionally run this effect when `juegoId` changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     cargarReseñas();
     if (juegoId) {
       cargarJuego();
