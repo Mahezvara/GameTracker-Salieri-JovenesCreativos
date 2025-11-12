@@ -1,0 +1,108 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0e0e0e;
+}
+
+.dashboard-layout {
+  min-height: 100vh;
+  background-color: #0e0e0e;
+}
+
+.dashboard-navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.logo-icon {
+  color: #00b4ff;
+  font-size: 28px;
+}
+
+.dashboard-nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #b0b0b0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+  color: #00b4ff;
+}
+
+.nav-link.active {
+  color: #00b4ff;
+  border-bottom: 2px solid #00b4ff;
+  padding-bottom: 6px;
+}
+
+.btn-sm {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+}
+
+@media (max-width: 768px) {
+  .dashboard-navbar-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dashboard-nav-links {
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-nav-links {
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+
+  .nav-link.active {
+    padding-bottom: 4px;
+  }
+}

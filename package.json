@@ -1,0 +1,18 @@
+{
+  "name": "salieri",
+  "version": "1.0.0",
+  "description": "Salieri - Full-stack MERN application for gaming enthusiasts",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "keywords": ["mern", "videojuegos", "fullstack", "mongodb", "express", "react"],
+  "author": "Ana Hernández",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
