@@ -56,15 +56,11 @@ const BibliotecaJuegos = () => {
 
   const handleAddGame = async (gameData) => {
     try {
-      let gameId;
-      
       if (editingGame) {
         await gameService.updateGame(editingGame._id, gameData);
-        gameId = editingGame._id;
         setEditingGame(null);
       } else {
-        const response = await gameService.createGame(gameData);
-        gameId = response.data.data._id;
+        await gameService.createGame(gameData);
       }
 
       setShowForm(false);
