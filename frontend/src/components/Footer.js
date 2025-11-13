@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>© 2025 Mi Portfolio. Todos los derechos reservados.</p>
+        <p>© 2025 Salieri. Todos los derechos reservados.</p>
         <div className="footer-links">
           <a href="https://www.facebook.com/miguelangel.hernandez.3998263" target="_blank" rel="noopener noreferrer">Facebook</a>
           <span className="separator">|</span>

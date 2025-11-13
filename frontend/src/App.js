@@ -4,6 +4,7 @@ import './App.css';
 import './styles/global.css';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
@@ -46,6 +47,7 @@ function App() {
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          <Footer />
         </div>
       </AuthProvider>
     </Router>

@@ -17,14 +17,9 @@ const ListaReseñas = ({ juegoId }) => {
 
   useEffect(() => {
     cargarReseñas();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [juegoId]);
-
-  useEffect(() => {
     if (juegoId) {
       cargarJuego();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [juegoId]);
 
   

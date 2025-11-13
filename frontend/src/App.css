@@ -4,7 +4,10 @@
   background-color: #0e0e0e;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.App > :not(footer) {
+  flex: 1;
 }
 
 .dashboard-layout {

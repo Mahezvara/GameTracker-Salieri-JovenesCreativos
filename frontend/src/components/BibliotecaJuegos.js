@@ -3,7 +3,7 @@ import '../styles/BibliotecaJuegos.css';
 import TarjetaJuego from './TarjetaJuego';
 import FormularioJuego from './FormularioJuego';
 import ListaReseñas from './ListaReseñas';
-import { gameService } from '../services/api';
+import { gameService, reviewService } from '../services/api';
 
 const BibliotecaJuegos = () => {
   const [juegos, setJuegos] = useState([]);
@@ -56,11 +56,15 @@ const BibliotecaJuegos = () => {
 
   const handleAddGame = async (gameData) => {
     try {
+      let gameId;
+      
       if (editingGame) {
         await gameService.updateGame(editingGame._id, gameData);
+        gameId = editingGame._id;
         setEditingGame(null);
       } else {
-        await gameService.createGame(gameData);
+        const response = await gameService.createGame(gameData);
+        gameId = response.data.data._id;
       }
 
       setShowForm(false);
