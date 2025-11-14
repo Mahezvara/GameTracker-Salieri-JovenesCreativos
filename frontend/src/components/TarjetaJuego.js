@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/TarjetaJuego.css';
 
-const TarjetaJuego = ({ juego, onEdit, onDelete, onReview }) => {
+const TarjetaJuego = ({ juego, onEdit, onDelete, onReview, onToggleFavorite, isFavorite }) => {
   const generoEmoji = {
     Acción: '⚔️',
     RPG: '🗡️',
@@ -73,6 +73,14 @@ const TarjetaJuego = ({ juego, onEdit, onDelete, onReview }) => {
         <p className="juego-descripcion">{juego.descripcion}</p>
 
         <div className="juego-acciones">
+          <button
+            className={`btn btn-fav btn-sm ${isFavorite ? 'favorito' : ''}`}
+            onClick={() => onToggleFavorite && onToggleFavorite(juego._id)}
+            aria-label={isFavorite ? 'Quitar de favoritos' : 'Marcar como favorito'}
+          >
+            {isFavorite ? '❤️' : '🖤'}
+          </button>
+
           <button className="btn btn-secondary btn-sm" onClick={() => onEdit(juego)}>
             Editar
           </button>

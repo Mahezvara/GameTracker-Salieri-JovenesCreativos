@@ -14,6 +14,15 @@ const BibliotecaJuegos = () => {
     plataforma: '',
     estado: '',
   });
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const saved = localStorage.getItem('favorites');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [selectedGameForReview, setSelectedGameForReview] = useState(null);
@@ -52,6 +61,19 @@ const BibliotecaJuegos = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const toggleFavorite = (id) => {
+    setFavorites((prev) => {
+      const exists = prev.includes(id);
+      const next = exists ? prev.filter((f) => f !== id) : [...prev, id];
+      try {
+        localStorage.setItem('favorites', JSON.stringify(next));
+      } catch (e) {
+        console.error('No se pudo guardar favoritos en localStorage', e);
+      }
+      return next;
+    });
   };
 
   const handleAddGame = async (gameData) => {
@@ -125,6 +147,13 @@ const BibliotecaJuegos = () => {
           }}
         >
           + Agregar Juego
+        </button>
+        <button
+          className={`btn btn-outline" ${showOnlyFavorites ? 'active' : ''}`}
+          style={{ marginLeft: '10px' }}
+          onClick={() => setShowOnlyFavorites((s) => !s)}
+        >
+          {showOnlyFavorites ? 'Mostrar todo' : 'Mostrar favoritos'}
         </button>
       </div>
 
@@ -225,13 +254,15 @@ const BibliotecaJuegos = () => {
             </div>
           )}
           <div className="juegos-grid">
-            {juegos.map((juego) => (
+            {(showOnlyFavorites ? juegos.filter((g) => favorites.includes(g._id)) : juegos).map((juego) => (
               <TarjetaJuego
                 key={juego._id}
                 juego={juego}
                 onEdit={handleEditGame}
                 onDelete={handleDeleteGame}
                 onReview={handleReview}
+                onToggleFavorite={toggleFavorite}
+                isFavorite={favorites.includes(juego._id)}
               />
             ))}
           </div>
