@@ -139,22 +139,24 @@ const BibliotecaJuegos = () => {
     <div className="biblioteca">
       <div className="biblioteca-header">
         <h1>Mi Biblioteca de Juegos</h1>
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            setEditingGame(null);
-            setShowForm(true);
-          }}
-        >
-          + Agregar Juego
-        </button>
-        <button
-          className={`btn btn-outline" ${showOnlyFavorites ? 'active' : ''}`}
-          style={{ marginLeft: '10px' }}
-          onClick={() => setShowOnlyFavorites((s) => !s)}
-        >
-          {showOnlyFavorites ? 'Mostrar todo' : 'Mostrar favoritos'}
-        </button>
+        <div className="header-actions">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              setEditingGame(null);
+              setShowForm(true);
+            }}
+          >
+            + Agregar Juego
+          </button>
+
+          <button
+            className={`btn btn-outline ${showOnlyFavorites ? 'active' : ''}`}
+            onClick={() => setShowOnlyFavorites((s) => !s)}
+          >
+            {showOnlyFavorites ? 'Mostrar todo' : 'Mostrar favoritos'}
+          </button>
+        </div>
       </div>
 
       {error && <div className="error-message">{error}</div>}
