@@ -13,8 +13,7 @@ const Hero = () => {
         <p className="hero-subtitle">Descubre, colecciona y analiza tus juegos</p>
         
         <div className="hero-description">
-          <p>Salieri te ayuda a organizar tu biblioteca, registrar lo que has jugado y lo que quieres jugar, compartiendo reseñas con tu comunidad. Encuentra recomendaciones, crea listas y mantén
-          tu colección siempre actualizada.</p>
+          <p>Salieri te permite gestionar tu biblioteca gamer de manera sencilla. Registra los juegos que has probado o terminado, escribe y comparte reseñas con la comunidad y descubre nuevas recomendaciones. Mantén tu colección siempre organizada y al día.</p>
         </div>
 
         <div className="hero-features">
